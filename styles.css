@@ -28,11 +28,12 @@ header {
     padding: 20px 0;
     text-align: center;
     position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 0 50px;
 }
@@ -40,6 +41,7 @@ nav {
 .logo {
     font-size: 1.5em;
     font-weight: 600;
+    margin-right: auto;
 }
 
 nav ul {
@@ -62,32 +64,34 @@ nav ul li a:hover {
 }
 
 .header-content {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     padding: 100px 20px;
+    text-align: center;
 }
 
 .header-content h1 {
-    font-size: 2.5em;
+    font-size: 3em;
     margin-bottom: 10px;
 }
 
 .header-content p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
+    font-size: 1.4em;
+    margin-bottom: 30px;
 }
 
 .btn {
-    padding: 10px 20px;
+    padding: 12px 24px;
     background-color: #ffda79;
     color: #333;
     border-radius: 30px;
     font-weight: 600;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .btn:hover {
     background-color: #ffc107;
+    transform: scale(1.05);
 }
 
 /* Main Content */
@@ -98,32 +102,32 @@ section {
 
 #webapps h2, #contact h2 {
     margin-bottom: 40px;
-    font-size: 2em;
+    font-size: 2.2em;
     color: #333;
 }
 
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 30px;
     padding: 0 50px;
 }
 
 .grid-item {
     background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .grid-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .btn-secondary {
-    padding: 8px 16px;
+    padding: 10px 20px;
     background-color: #007bff;
     color: white;
     border-radius: 20px;
@@ -159,4 +163,5 @@ footer {
 
 footer p {
     margin: 0;
+    font-size: 0.9em;
 }
