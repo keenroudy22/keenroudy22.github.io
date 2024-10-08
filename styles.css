@@ -1,168 +1,79 @@
-/* Global Styles */
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f2f5;
-    color: #444;
-    line-height: 1.6;
-}
-
-/* Header */
-header {
-    background: linear-gradient(to right, #4a2c84, #ffc62f); /* Vikings colors */
-    color: white;
-    padding: 60px 0;
+/* Vikings Section */
+#vikings {
+    background-color: #4a2c84; /* Vikings Purple */
+    color: #ffc62f; /* Vikings Gold */
+    padding: 50px 20px;
     text-align: center;
 }
 
-nav {
+#vikings h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.vikings-content {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px; /* Reduced padding for better mobile view */
+    justify-content: space-around;
+    padding: 20px;
 }
 
-.logo {
-    font-size: 1.5em; /* Reduced size for better mobile fit */
-    font-weight: 700;
-    color: #ffc62f; /* Vikings gold */
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 15px; /* Reduced gap for better mobile fit */
-}
-
-.nav-links a {
-    color: white;
-    font-weight: 400;
-    transition: opacity 0.3s;
-}
-
-.nav-links a:hover {
-    opacity: 0.7;
-}
-
-.header-content h1 {
-    font-size: 2.5em; /* Adjusted for better mobile fit */
-    margin-bottom: 15px;
-    color: #ffc62f; /* Vikings gold */
-}
-
-.header-content p {
-    font-size: 1.1em;
-    margin-bottom: 25px;
-}
-
-.btn {
-    padding: 12px 25px;
-    background-color: #ffc62f; /* Vikings gold */
-    color: #4a2c84; /* Vikings purple */
-    border-radius: 30px;
-    font-weight: 700;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #4a2c84;
-    color: #ffc62f;
-}
-
-/* Main Content */
-section {
-    padding: 50px 20px; /* Adjusted for better mobile view */
-    text-align: center;
-}
-
-#webapps h2, #contact h2 {
-    margin-bottom: 30px;
-    font-size: 2em;
-    color: #4a2c84; /* Vikings purple */
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusted for better mobile fit */
-    gap: 20px; /* Adjusted for better mobile view */
-    padding: 0 20px; /* Adjusted for better mobile view */
-}
-
-.grid-item {
-    background-color: white;
+.schedule, .record {
+    background-color: #fff;
+    color: #4a2c84;
     padding: 20px;
     border-radius: 10px;
+    width: 45%;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.grid-item:hover {
+.schedule h3, .record h3 {
+    font-size: 1.8em;
+}
+
+.schedule p, .record p {
+    font-size: 1.2em;
+}
+
+.schedule:hover, .record:hover {
     transform: translateY(-7px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-.btn-secondary {
-    padding: 10px 20px;
-    background-color: #4a2c84; /* Vikings purple */
-    color: white;
-    border-radius: 25px;
-    transition: background-color 0.3s;
-}
-
-.btn-secondary:hover {
-    background-color: #ffc62f;
-    color: #4a2c84;
-}
-
-/* Contact Section */
-#contact p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
+/* Footer Fun */
 footer {
-    background-color: #4a2c84; /* Vikings purple */
-    color: white;
+    background-color: #4a2c84;
+    color: #ffc62f;
     text-align: center;
     padding: 30px 0;
+    font-size: 1.2em;
 }
 
 footer p {
     margin: 0;
+    animation: pulse 2s infinite;
 }
 
-/* Responsive Design */
+/* Adding animations */
+@keyframes pulse {
+    0% {
+        color: #ffc62f;
+    }
+    50% {
+        color: white;
+    }
+    100% {
+        color: #ffc62f;
+    }
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    nav {
+    .vikings-content {
         flex-direction: column;
-        padding: 10px 20px;
+        gap: 20px;
     }
 
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-links li {
-        margin-left: 0;
-        margin-bottom: 10px;
-    }
-
-    .header-content h1 {
-        font-size: 2em;
-    }
-
-    .header-content p {
-        font-size: 1em;
-    }
-
-    .btn {
-        font-size: 0.9em;
-        padding: 10px 20px;
-    }
-
-    .grid-item {
-        padding: 15px;
+    .schedule, .record {
+        width: 100%;
     }
 }
