@@ -12,7 +12,7 @@ body {
 header {
     background: linear-gradient(to right, #4a2c84, #ffc62f); /* Vikings colors */
     color: white;
-    padding: 60px 0;
+    padding: 60px 20px;
     text-align: center;
 }
 
@@ -20,18 +20,18 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px; /* Reduced padding for better mobile view */
+    padding: 0 20px;
 }
 
 .logo {
-    font-size: 1.5em; /* Reduced size for better mobile fit */
+    font-size: 1.5em;
     font-weight: 700;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 15px; /* Reduced gap for better mobile fit */
+    gap: 15px;
 }
 
 .nav-links a {
@@ -45,7 +45,7 @@ nav {
 }
 
 .header-content h1 {
-    font-size: 2.5em; /* Adjusted for better mobile fit */
+    font-size: 2.5em;
     margin-bottom: 15px;
 }
 
@@ -70,7 +70,7 @@ nav {
 
 /* Main Content */
 section {
-    padding: 50px 20px; /* Adjusted for better mobile view */
+    padding: 50px 20px;
     text-align: center;
 }
 
@@ -82,9 +82,9 @@ section {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusted for better mobile fit */
-    gap: 20px; /* Adjusted for better mobile view */
-    padding: 0 20px; /* Adjusted for better mobile view */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
 }
 
 .grid-item {
@@ -117,7 +117,12 @@ section {
 #contact p {
     font-size: 1.2em;
     margin-bottom: 20px;
-    margin-bottom: 20px;
+}
+
+.linkedin-icon {
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
 }
 
 footer {
@@ -135,7 +140,6 @@ footer p {
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
-        padding: 10px 20px;
     }
 
     .nav-links {
@@ -143,17 +147,8 @@ footer p {
         align-items: center;
     }
 
-    .nav-links li {
-        margin-left: 0;
-        margin-bottom: 10px;
-    }
-
     .header-content h1 {
         font-size: 2em;
-    }
-
-    .header-content p {
-        font-size: 1em;
     }
 
     .btn {
