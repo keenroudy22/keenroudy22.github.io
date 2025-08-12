@@ -1,134 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NFL Lottery — Scoreboard</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=4"/>
-  <link rel="icon" href="favicon.ico"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEEN</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1>🏈 NFL Lottery</h1>
-      <div class="meta">
-        <span class="legend-dot afc"></span><span class="legend-label">AFC</span>
-        <span class="legend-dot nfc"></span><span class="legend-label">NFC</span>
-        <span class="legend-badge">Weeks in (parentheses) = Scored 27</span>
-      </div>
-    </div>
-  </header>
+    <header>
+        <nav>
+            <div class="logo">SKOL Vikings!</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#webapps">Web Apps</a></li>
+                <li><a href="#vikings">Vikings</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-content">
+            <h1>Crafting Digital Experiences</h1>
+            <p>Welcome to my portfolio. Discover my work, creativity, and passion for web development.</p>
+            <a href="#webapps" class="btn">Explore My Projects</a>
+        </div>
+    </header>
 
-  <main class="container">
-    <section class="controls">
-      <button id="refreshBtn" class="btn">Refresh</button>
-      <div class="note">Data pulls from your Google Sheet. Totals are shown on the right of each card.</div>
+    <section id="webapps">
+        <h2>My Web Apps</h2>
+        <div class="grid-container">
+            <div class="grid-item">
+                <h3>Virtual Caddie</h3>
+                <p>Pick My Club!</p>
+                <a href="vCaddie-Rev2" class="btn-secondary">Go!</a>
+            </div>
+            <div class="grid-item">
+                <h3>Macro Calculator</h3>
+                <p>How many Calories!</p>
+                <a href="LoseItNow" class="btn-secondary">Go!</a>
+            </div>
+            <div class="grid-item">
+                <h3>NFL Lottery</h3>
+                <p>Tracker</p>
+                <a href="lottery" class="btn-secondary">Go!</a>
+            </div>
+        </div>
     </section>
 
-    <section id="cards" class="cards"></section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>Built for Kinnon • <a href="README.html">README</a></p>
-    </div>
-  </footer>
-
-  <script>
-    const SHEET_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRIVvTEgE3OKW_mM43p_3MXRzEuZm1DIVvk6sG8GSxIlVh8sYv5Wl2GT6awHuKpuJx_rN3Q3u6Hz8gp/pub?gid=0&single=true&output=csv';
-
-    const TEAM_LOGOS = {
-      // NFC
-      'arizona cardinals':'cardinals.svg','atlanta falcons':'falcons.svg','carolina panthers':'panthers.svg','chicago bears':'bears.svg','dallas cowboys':'cowboys.svg','detroit lions':'lions.svg','green bay packers':'packers.svg','los angeles rams':'rams.svg','minnesota vikings':'vikings.svg','new orleans saints':'saints.svg','new york giants':'giants.svg','philadelphia eagles':'eagles.svg','san francisco 49ers':'49ers.svg','seattle seahawks':'seahawks.svg','tampa bay buccaneers':'buccaneers.svg','washington commanders':'commanders.svg',
-      // AFC
-      'baltimore ravens':'ravens.svg','buffalo bills':'bills.svg','cincinnati bengals':'bengals.svg','cleveland browns':'browns.svg','denver broncos':'broncos.svg','houston texans':'texans.svg','indianapolis colts':'colts.svg','jacksonville jaguars':'jaguars.svg','kansas city chiefs':'chiefs.svg','las vegas raiders':'raiders.svg','los angeles chargers':'chargers.svg','miami dolphins':'dolphins.svg','new england patriots':'patriots.svg','new york jets':'jets.svg','pittsburgh steelers':'steelers.svg','tennessee titans':'titans.svg',
-      // Common short names
-      '49ers':'49ers.svg','rams':'rams.svg','chargers':'chargers.svg','raiders':'raiders.svg','chiefs':'chiefs.svg','bengals':'bengals.svg','browns':'browns.svg','broncos':'broncos.svg','vikings':'vikings.svg','eagles':'eagles.svg','cowboys':'cowboys.svg','giants':'giants.svg','packers':'packers.svg','lions':'lions.svg','saints':'saints.svg','panthers':'panthers.svg','seahawks':'seahawks.svg','buccaneers':'buccaneers.svg','commanders':'commanders.svg','patriots':'patriots.svg','dolphins':'dolphins.svg','steelers':'steelers.svg','texans':'texans.svg','colts':'colts.svg','jaguars':'jaguars.svg','titans':'titans.svg','jets':'jets.svg','bills':'bills.svg','ravens':'ravens.svg','bears':'bears.svg','cardinals':'cardinals.svg','falcons':'falcons.svg'
-    };
-
-    const cardsEl = document.getElementById('cards');
-    const refreshBtn = document.getElementById('refreshBtn');
-
-    function money(v){ if(v===undefined||v===null) return '$0.00'; const n=parseFloat(String(v).replace(/[^\d.-]/g,''))||0; return n.toLocaleString(undefined,{style:'currency',currency:'USD',minimumFractionDigits:2}); }
-
-    function normalizeTeamName(s){
-      if(!s) return '';
-      // Convert NBSP and weird spaces to normal spaces first
-      const cleaned = String(s).replace(/\u00A0|\u2007|\u202F/g,' ')
-        .replace(/\(([^)]*)\)/g,'') // remove (..)
-        .replace(/[–—]/g,'-') // dashes
-        .replace(/[^\w\s-]/g,'') // strip punctuation except dash
-        .replace(/\s+/g,' ') // collapse spaces
-        .trim()
-        .toLowerCase();
-      return cleaned;
-    }
-
-    function teamToLogoHTML(original, conf){
-      if(!original || !original.trim()) return '';
-      const badges = [...original.matchAll(/\(([^)]+)\)/g)].map(m=>m[1]);
-      const base = normalizeTeamName(original);
-      // Special case for any 'falcon' variant
-      const key = base.includes('falcon') ? 'falcons' : base;
-      const file = TEAM_LOGOS[key] || TEAM_LOGOS[key.replace('los angeles ','la ')] || TEAM_LOGOS[key.split(' ').slice(-1)[0]];
-      if(!file){
-        console.warn('No logo match for team text:', original, '→ normalized:', key);
-      }
-      const logoSrc = file ? `logos/${file}` : '';
-      const nameForAlt = base || original;
-      const img = logoSrc
-        ? `<img class="team-logo" src="${logoSrc}" alt="${nameForAlt} logo" onerror="this.classList.add('missing')">`
-        : `<span class="fallback">${original.replace(/\(([^)]+)\)/g,'').trim()}</span>`;
-      const badgeHTML = badges.map(b => `<span class="week-badge">(${b})</span>`).join('');
-      return `<div class="team ${conf}">${img}<span class="team-name">${original.replace(/\(([^)]+)\)/g,'').trim()}</span>${badgeHTML}</div>`;
-    }
-
-    async function load(){
-      cardsEl.innerHTML = '<div class="loading">Loading…</div>';
-      try{
-        const res = await fetch(SHEET_CSV, {cache: 'no-store'});
-        const text = await res.text();
-        const rows = text.split('\n').filter(r => r.trim().length);
-        rows.shift(); // headers
-        const items = rows.map(r => r.split(','));
-        cardsEl.innerHTML='';
-        items.forEach(cols => {
-          if(cols.length < 6) return;
-          const [player, afc1, afc2, nfc1, nfc2, total] = cols;
-          const safePlayer = player && player.trim() ? player : 'n/a';
-          const card = document.createElement('article');
-          card.className = 'card';
-          card.innerHTML = `
-            <div class="card-head">
-              <div class="avatar">${(safePlayer || '?').charAt(0).toUpperCase()}</div>
-              <div class="who"><h2>${safePlayer}</h2><div class="sub">Current winnings</div></div>
-              <div class="total ${parseFloat(total) > 0 ? 'won' : ''}">${money(total)}</div>
+    <section id="vikings">
+        <h2>Vikings Record</h2>
+        <div class="vikings-content">
+            <div class="record">
+                <h3>Wins: 14, Losses: 2</h3>
             </div>
-            <div class="teams">
-              <div class="col">
-                <div class="col-title"><span class="dot afc"></span>AFC</div>
-                ${teamToLogoHTML(afc1 || '', 'afc')}
-                ${teamToLogoHTML(afc2 || '', 'afc')}
-              </div>
-              <div class="col">
-                <div class="col-title"><span class="dot nfc"></span>NFC</div>
-                ${teamToLogoHTML(nfc1 || '', 'nfc')}
-                ${teamToLogoHTML(nfc2 || '', 'nfc')}
-              </div>
-            </div>`;
-          cardsEl.appendChild(card);
-        });
-      }catch(err){
-        cardsEl.innerHTML = '<div class="error">Could not load sheet. Check the published CSV link.</div>';
-        console.error(err);
-      }
-    }
+        </div>
+    </section>
 
-    refreshBtn.addEventListener('click', load);
-    load();
-  </script>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Interested in working together or just want to say hello? Let's connect!</p>
+        <a href="mailto:kar@keenroudy.com" class="btn">Email Me!</a>
+        <a href="https://www.linkedin.com/in/kinnonroudebush" target="_blank">
+            <img src="https://t3.ftcdn.net/jpg/07/85/91/18/240_F_785911853_7BZ7cSB0gF4RVxpDlcdKfpfg98QVWpCT.jpg" alt="LinkedIn Profile" class="linkedin-icon">
+        </a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Kinnon Roudebush. SKOL Vikings!</p>
+    </footer>
 </body>
 </html>
