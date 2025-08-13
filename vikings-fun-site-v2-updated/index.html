@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SKOL — Kinnon's Fun Site</title>
+  <meta name="description" content="Kinnon's Vikings fan corner and web app showcase.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#4F2683">
+  <meta property="og:title" content="SKOL — Kinnon's Fun Site">
+  <meta property="og:description" content="Vikings vibes + web apps">
+  <meta property="og:type" content="website">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <div class="brand">
+        <img src="./assets/icons/favicon.svg" alt="" width="28" height="28" aria-hidden="true">
+        <span class="brand-text">Kinnon<span class="skol-dot">•</span>Roudebush</span>
+      </div>
+      <nav class="nav" aria-label="Main">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
+        <ul id="nav-list" class="nav-list">
+          <li><a href="#apps">Apps</a></li>
+          <li><a href="#vikings">Vikings</a></li>
+          <li><a href="#fan">Fan Resume</a></li>
+          <li><button id="installBtn" class="btn btn-gold btn-small" hidden>Install</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">SKOL • Dad • Web tinkerer</p>
+          <h1>Just for fun.<br><span class="grad-text">Vikings & web apps.</span></h1>
+          <p class="lede">This is my little corner to share stuff I build and celebrate purple &amp; gold.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#apps">Browse my apps</a>
+            <button id="skolButton" class="btn btn-ghost">SKOL!</button>
+          </div>
+        </div>
+        <div class="hero-art">
+          <svg class="horn left" viewBox="0 0 120 120" aria-hidden="true">
+            <path d="M14,78 C36,30 86,22 104,16 C92,32 78,60 48,86 C36,96 22,102 14,78 Z" class="horn-gold"/>
+            <path d="M16,78 C28,80 42,74 54,64 C42,74 28,80 16,78 Z" class="horn-shadow"/>
+          </svg>
+          <svg class="horn right" viewBox="0 0 120 120" aria-hidden="true">
+            <path d="M106,78 C84,30 34,22 16,16 C28,32 42,60 72,86 C84,96 98,102 106,78 Z" class="horn-gold"/>
+            <path d="M104,78 C92,80 78,74 66,64 C78,74 92,80 104,78 Z" class="horn-shadow"/>
+          </svg>
+          <div class="hero-badge"><span class="badge">MIN • VIKINGS</span></div>
+        </div>
+      </div>
+
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <span>SKOL • SKOL • SKOL • SKOL • SKOL • SKOL • </span>
+          <span>SKOL • SKOL • SKOL • SKOL • SKOL • SKOL • </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPS -->
+    <section id="apps" class="section">
+      <div class="wrap">
+        <h2 class="section-title">Web Apps</h2>
+        <p class="section-sub">Auto-filled from <code>data/apps.json</code>. Add your links and emojis there.</p>
+        <div id="appsGrid" class="grid cards" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- VIKINGS -->
+    <section id="vikings" class="section vikings">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title">Vikings Corner</h2>
+          <p class="section-sub">Drop official logos in <code>/assets/logos</code> and rename the paths below to match.</p>
+        </div>
+        <div class="logo-strip" role="list" aria-label="Vikings logos">
+          <img role="listitem" src="./assets/logos/Full-Logo.png" alt="Full Logo" loading="lazy" decoding="async">
+          <img role="listitem" src="./assets/logos/Horn.png" alt="Horn" loading="lazy" decoding="async">
+          <img role="listitem" src="./assets/logos/Minnesota-Vikings.png" alt="Minnesota Vikings" loading="lazy" decoding="async">
+          <img role="listitem" src="./assets/logos/V.png" alt="V" loading="lazy" decoding="async">
+          <img role="listitem" src="./assets/logos/vikings-alt.svg" alt="Vikings Alt" loading="lazy" decoding="async">
+          <img role="listitem" src="./assets/logos/vikings-primary.svg" alt="Vikings Primary" loading="lazy" decoding="async">
+          <img role="listitem" src="./assets/logos/vikings-wordmark.svg" alt="Vikings Wordmark" loading="lazy" decoding="async">
+        </div>
+
+        <div class="fan-toys">
+          <button id="chantBtn" class="btn btn-primary">Start SKOL Chant</button>
+          <button id="confettiBtn" class="btn btn-ghost">Purple Confetti</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAN RESUME -->
+    <section id="fan" class="section about">
+      <div class="wrap about-grid">
+        <div>
+          <h2 class="section-title">Fan Resume</h2>
+          <ul class="ticks">
+            <li>Sundays = purple attire</li>
+            <li>Favorite eras: Moss deep balls, Allen sack dances, JJ griddy highlights</li>
+            <li>Preferred scoreline: Vikings by 3 😅</li>
+          </ul>
+        </div>
+        <div class="about-card">
+          <h3>All-Time Faves</h3>
+          <ul class="mini-list">
+            <li>Randy Moss • Adrian Peterson • Jared Allen</li>
+            <li>Justin Jefferson • Danielle Hunter</li>
+            <li>Honorable: Thielen, Winfield Sr., Smith</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <p class="foot-left">© <span id="year"></span> Kinnon Roudebush</p>
+      <p class="foot-center">Built for fun — not affiliated with the NFL or Vikings</p>
+      <div class="foot-right">
+        <button id="themeToggle" class="btn btn-small">Toggle theme</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./script.js" defer></script>
+</body>
+</html>
