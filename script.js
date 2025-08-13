@@ -94,30 +94,6 @@ extra.textContent = `
 document.head.appendChild(extra);
 
 /* Vikings toys */
-// Chant (simple metronome clap using WebAudio)
-$("#chantBtn")?.addEventListener("click", ()=>{
-  const ctx = new (window.AudioContext||window.webkitAudioContext)();
-  let count = 0;
-  const tempo = 85; // adjust if you like
-  const interval = (60/tempo)*1000;
-  const id = setInterval(()=>{
-    // two claps, pause, repeat
-    const now = ctx.currentTime;
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.type = "square";
-    osc.frequency.value = (count%4===0 || count%4===1) ? 880 : 220;
-    gain.gain.setValueAtTime(0.0001, now);
-    gain.gain.exponentialRampToValueAtTime(0.15, now + 0.01);
-    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.12);
-    osc.connect(gain).connect(ctx.destination);
-    osc.start(now);
-    osc.stop(now + 0.15);
-    count++;
-    if (count > 16) { clearInterval(id); }
-  }, interval);
-});
-
 // Confetti
 $("#confettiBtn")?.addEventListener("click", ()=>{
   for(let i=0;i<120;i++){

@@ -62,36 +62,21 @@ body{
 .btn-small{padding:6px 10px;border:1px solid rgba(255,255,255,.25);background:transparent;color:var(--paper);border-radius:10px}
 
 /* Hero */
-.hero{
-  position:relative;
-  padding: 58px 0 32px;
-  background:
-    radial-gradient(800px 500px at -20% 0%, rgba(255,198,47,.15), transparent 60%),
-    radial-gradient(1000px 600px at 110% 10%, rgba(79,38,131,.4), transparent 60%);
+.hero{position:relative;padding:58px 0 32px;background:
+  radial-gradient(800px 500px at -20% 0%, rgba(255,198,47,.15), transparent 60%),
+  radial-gradient(1000px 600px at 110% 10%, rgba(79,38,131,.4), transparent 60%);
   overflow:hidden;
 }
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center}
 .eyebrow{color:var(--gold);letter-spacing:.3px;font-weight:800;margin:0 0 8px 0;font-family:'Barlow Condensed',Inter,sans-serif}
-.hero h1{
-  font-family:'Barlow Condensed', Inter, sans-serif;line-height:1.05;margin:0 0 8px 0;
-  font-size: clamp(36px, 4.2vw + 12px, 68px);
-}
+.hero h1{font-family:'Barlow Condensed', Inter, sans-serif;line-height:1.05;margin:0 0 8px 0;font-size: clamp(36px, 4.2vw + 12px, 68px);}
 .grad-text{background: linear-gradient(90deg, var(--gold), #fff);-webkit-background-clip:text;background-clip:text;color:transparent}
 .lede{color:#d8d4e6;max-width:60ch}
 .cta{display:flex;gap:12px;margin-top:14px}
 
 .hero-art{position:relative;min-height:240px}
-.horn{position:absolute;width:160px;opacity:.9}
-.horn.left{left:-10px;top:10px;transform: rotate(-8deg)}
-.horn.right{right:-10px;bottom:-10px;transform: rotate(18deg)}
-.horn-gold{fill:var(--gold)}
-.horn-shadow{fill:rgba(0,0,0,.15)}
 
-.hero-badge .badge{
-  display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.15);backdrop-filter: blur(6px);
-  position:absolute;right:24px;top:24px;font-weight:800;letter-spacing:.3px
-}
+.hero-badge .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.15);backdrop-filter: blur(6px);position:absolute;right:24px;top:24px;font-weight:800;letter-spacing:.3px}
 
 /* marquee */
 .ticker{overflow:hidden;border-block:1px solid rgba(255,255,255,.08);margin-top:28px}
@@ -164,3 +149,48 @@ body.goldish{
   .nav-logo{height:38px}
 }
 .nav-logo:hover{transform: translateY(-1px); transition:.15s ease-in-out}
+
+
+
+/* Watermark 'V' logo in hero */
+.hero::after{
+  content:"";
+  position:absolute; inset:auto 0 -40px auto; right:-40px; bottom:-20px;
+  width:220px; height:220px;
+  background: url("./assets/logos/V.png") no-repeat center/contain;
+  opacity:.08; pointer-events:none; filter: drop-shadow(0 8px 30px rgba(79,38,131,.35));
+}
+
+/* Badge before section titles */
+.section-title{
+  position:relative; padding-left:48px;
+}
+.section-title::before{
+  content:""; position:absolute; left:0; top:2px; width:36px; height:36px;
+  background: url("./assets/logos/V.png") no-repeat center/contain;
+  opacity:.22; filter: drop-shadow(0 4px 12px rgba(79,38,131,.35));
+}
+
+/* Slight spacing fix when section title is first child */
+.wrap > .section-title:first-child{ margin-top: 0 }
+
+
+/* Full-Logo in hero top-right */
+.hero-logo-hero{
+  position:absolute;
+  right:24px;
+  top:24px;
+  z-index:2;
+}
+.hero-logo-hero img{
+  display:block;
+  width: clamp(86px, 12vw, 160px);
+  height:auto;
+  filter: drop-shadow(0 10px 24px rgba(0,0,0,.35));
+  border-radius: 10px;
+  background: rgba(0,0,0,.06);
+}
+@media (max-width: 640px){
+  .hero-logo-hero{ right:14px; top:14px; }
+  .hero-logo-hero img{ width: clamp(72px, 22vw, 120px); }
+}

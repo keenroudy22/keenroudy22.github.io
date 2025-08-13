@@ -1,26 +1,26 @@
 [
   {
-    "name": "vCaddie - Pick My Club",
-    "emoji": "\u26f3",
-    "desc": "Golf yardage + tracking (rev 2).",
-    "href": "https://keenroudy.com/vCaddie-Rev2/"
+    "name": "Lottery Scoreboard",
+    "emoji": "\ud83d\udcca",
+    "desc": "Weekly winners & pot tracking.",
+    "href": "https://keenroudy.com/lottery/"
   },
   {
-    "name": "Macro Calculator",
+    "name": "NFL Lottery",
+    "emoji": "\ud83c\udfc8",
+    "desc": "Assigns 4 NFL teams per player with logos.",
+    "href": "https://keenroudy.com/NFLlottery/"
+  },
+  {
+    "name": "Lose It Now",
     "emoji": "\ud83d\udd25",
     "desc": "Simple weight-loss helper.",
     "href": "https://keenroudy.com/LoseItNow/"
   },
   {
-    "name": "Keen's NFL Lottery",
-    "emoji": "\ud83c\udf9f\ufe0f",
-    "desc": "The original weekly winners tracker.",
-    "href": "https://keenroudy.com/lottery/"
-  },
-  {
-    "name": "NFL Lottery Draft",
-    "emoji": "\ud83c\udfc8",
-    "desc": "Assigns 4 NFL teams per player.",
-    "href": "https://keenroudy.com/NFLlottery/"
+    "name": "vCaddie Rev 2",
+    "emoji": "\u26f3",
+    "desc": "Golf yardage + tracking (rev 2).",
+    "href": "https://keenroudy.com/vCaddie-Rev2/"
   }
 ]
