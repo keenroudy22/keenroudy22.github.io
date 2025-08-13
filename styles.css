@@ -155,3 +155,12 @@ body{
 body.goldish{
   background: radial-gradient(1200px 1200px at 80% -10%, rgba(255,198,47,.22), transparent 60%), #0b0a13;
 }
+
+
+/* Header logo on right */
+.nav-logo{height:32px;display:block;filter: drop-shadow(0 4px 18px rgba(79,38,131,.35)); border-radius:6px}
+.nav-logo-li{display:flex;align-items:center}
+@media (min-width: 900px){
+  .nav-logo{height:38px}
+}
+.nav-logo:hover{transform: translateY(-1px); transition:.15s ease-in-out}

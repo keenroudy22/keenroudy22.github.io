@@ -130,3 +130,31 @@ $("#confettiBtn")?.addEventListener("click", ()=>{
     setTimeout(()=>dot.remove(), 6000);
   }
 });
+
+
+/* Header logo confetti + 'S' keyboard SKOL */
+const headerLogo = $(".nav-logo");
+headerLogo?.addEventListener("click", ()=>{
+  for(let i=0;i<80;i++){
+    const dot = document.createElement("div");
+    dot.className = "confetti";
+    dot.style.left = Math.random()*100 + "vw";
+    dot.style.animationDuration = (2.2 + Math.random()*2.2) + "s";
+    dot.style.background = (Math.random() > 0.5) ? "var(--purple)" : "var(--gold)";
+    document.body.appendChild(dot);
+    setTimeout(()=>dot.remove(), 5000);
+  }
+});
+document.addEventListener("keydown", (e)=>{
+  if(e.key.toLowerCase()==="s"){
+    const burst = document.createElement("div");
+    burst.className = "skol-burst";
+    burst.textContent = "SKOL!";
+    document.body.appendChild(burst);
+    const x = Math.random() * (window.innerWidth - 160) + 40;
+    const y = Math.random() * (window.innerHeight - 200) + 80;
+    burst.style.left = x + "px";
+    burst.style.top = y + "px";
+    setTimeout(()=>burst.remove(), 2000);
+  }
+});
