@@ -1,11 +1,5 @@
 [
   {
-    "name": "Lottery Scoreboard",
-    "emoji": "\ud83d\udcca",
-    "desc": "Weekly winners & pot tracking.",
-    "href": "https://keenroudy.com/lottery/"
-  },
-  {
     "name": "NFL Lottery Draft",
     "emoji": "\ud83c\udfc8",
     "desc": "Assigns 4 NFL teams per player.",
