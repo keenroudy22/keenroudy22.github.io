@@ -194,3 +194,19 @@ body.goldish{
   .hero-logo-hero{ right:14px; top:14px; }
   .hero-logo-hero img{ width: clamp(72px, 22vw, 120px); }
 }
+
+
+/* Schedule tables */
+.sched{ width:100%; border-collapse:collapse; margin:12px 0 24px; font-size: .98rem }
+.sched thead th{ text-align:left; font-weight:800; padding:10px 10px; border-bottom:2px solid rgba(255,255,255,.18) }
+.sched td{ padding:10px 10px; border-bottom:1px solid rgba(255,255,255,.08) }
+.sched tbody tr:hover{ background: rgba(255,255,255,.04) }
+.sched-sub{ margin: 18px 0 6px }
+.sched-note{ margin-top:6px }
+.record{ margin-left:10px }
+@media (max-width: 720px){
+  .sched thead{ display:none }
+  .sched, .sched tbody, .sched tr, .sched td{ display:block; width:100% }
+  .sched tr{ margin:8px 0; padding:10px; border:1px solid rgba(255,255,255,.08); border-radius:12px }
+  .sched td{ border:none; padding:4px 0 }
+}
