@@ -1,136 +1,113 @@
-const $ = (q, el=document)=>el.querySelector(q);
-const $$ = (q, el=document)=>Array.from(el.querySelectorAll(q));
+document.documentElement.classList.add("js");
 
-/* Year */
-$("#year").textContent = new Date().getFullYear();
+const navToggle = document.querySelector(".nav-toggle");
+const nav = document.querySelector(".site-nav");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* Mobile menu */
-const toggle = $(".nav-toggle");
-const list = $("#nav-list");
-if (toggle) {
-  toggle.addEventListener("click", ()=>{
-    const expanded = toggle.getAttribute("aria-expanded")==="true";
-    toggle.setAttribute("aria-expanded", String(!expanded));
-    list.classList.toggle("show");
-  });
+function closeNavigation() {
+  nav?.classList.remove("open");
+  navToggle?.setAttribute("aria-expanded", "false");
 }
 
-/* Theme toggle */
-$("#themeToggle")?.addEventListener("click", ()=>{
-  document.body.classList.toggle("goldish");
+navToggle?.addEventListener("click", () => {
+  const open = navToggle.getAttribute("aria-expanded") === "true";
+  navToggle.setAttribute("aria-expanded", String(!open));
+  nav?.classList.toggle("open", !open);
 });
 
-/* PWA: service worker + install prompt */
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", ()=>{
-    navigator.serviceWorker.register("./sw.js");
-  });
-}
-let deferredPrompt;
-window.addEventListener("beforeinstallprompt", (e)=>{
-  e.preventDefault();
-  deferredPrompt = e;
-  $("#installBtn")?.removeAttribute("hidden");
-});
-$("#installBtn")?.addEventListener("click", async ()=>{
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    await deferredPrompt.userChoice;
-    deferredPrompt = null;
-    $("#installBtn").setAttribute("hidden", "true");
+nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeNavigation));
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeNavigation();
+    navToggle?.focus();
   }
 });
 
-/* Apps loader (from data/apps.json) */
-async function loadApps(){
-  try{
-    const res = await fetch("./data/apps.json", {cache:"no-store"});
-    const apps = await res.json();
-    const grid = $("#appsGrid");
-    grid.innerHTML = "";
-    for(const app of apps){
+document.querySelector("#year").textContent = new Date().getFullYear();
+
+const reveals = document.querySelectorAll(".reveal");
+if (reduceMotion || !("IntersectionObserver" in window)) {
+  reveals.forEach((element) => element.classList.add("visible"));
+} else {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach((element) => observer.observe(element));
+}
+
+async function loadNow() {
+  const grid = document.querySelector("#now-grid");
+  const updated = document.querySelector("#now-updated");
+  if (!grid || !updated) return;
+
+  try {
+    const response = await fetch("./data/now.json", { cache: "no-store" });
+    if (!response.ok) throw new Error(`Status ${response.status}`);
+    const items = await response.json();
+    if (!Array.isArray(items) || items.length === 0) throw new Error("No scoreboard items");
+
+    const fragment = document.createDocumentFragment();
+    items.forEach((item) => {
+      if (!item?.label || !item?.value) return;
       const card = document.createElement("article");
-      card.className = "card";
-      card.innerHTML = `
-        <div class="card-media"><div class="logo-chip">${app.emoji||"✨"}</div></div>
-        <div class="card-body">
-          <h3>${app.name}</h3>
-          <p>${app.desc||""}</p>
-          <a class="card-link" href="${app.href}" target="_blank" rel="noopener">Open</a>
-        </div>`;
-      grid.appendChild(card);
+      const label = document.createElement("span");
+      const value = document.createElement("strong");
+      label.textContent = item.label;
+      value.textContent = item.value;
+      card.append(label, value);
+      fragment.append(card);
+    });
+
+    if (!fragment.childNodes.length) throw new Error("No valid scoreboard items");
+    grid.replaceChildren(fragment);
+    const latest = items.find((item) => item.updated)?.updated;
+    if (latest) updated.textContent = `Updated ${latest}`;
+  } catch (error) {
+    console.info("Using the built-in scoreboard snapshot.", error);
+  }
+}
+loadNow();
+
+function celebrateSkol() {
+  const shout = document.createElement("p");
+  shout.className = "skol-shout";
+  shout.textContent = "SKOL!";
+  document.body.append(shout);
+  window.setTimeout(() => shout.remove(), 850);
+
+  if (reduceMotion) return;
+  const colors = ["#f5c451", "#4d2c7a", "#fff8e9"];
+  for (let index = 0; index < 70; index += 1) {
+    const piece = document.createElement("span");
+    piece.className = "confetti";
+    piece.style.left = `${Math.random() * 100}vw`;
+    piece.style.background = colors[index % colors.length];
+    piece.style.setProperty("--fall-time", `${2.4 + Math.random() * 2}s`);
+    piece.style.setProperty("--drift", `${-80 + Math.random() * 160}px`);
+    piece.style.transform = `rotate(${Math.random() * 180}deg)`;
+    document.body.append(piece);
+    window.setTimeout(() => piece.remove(), 4700);
+  }
+}
+document.querySelector("#skol-button")?.addEventListener("click", celebrateSkol);
+
+// Retire the old cache-first PWA without keeping an installable app on this site.
+if ("serviceWorker" in navigator && !localStorage.getItem("kr-sw-cleanup-v1")) {
+  window.addEventListener("load", async () => {
+    try {
+      await navigator.serviceWorker.register("./sw.js", { updateViaCache: "none" });
+      if ("caches" in window) {
+        const keys = await caches.keys();
+        await Promise.all(keys.map((key) => caches.delete(key)));
+      }
+      localStorage.setItem("kr-sw-cleanup-v1", "complete");
+    } catch (error) {
+      console.info("Legacy cache cleanup will retry on the next visit.", error);
     }
-  }catch(err){
-    console.error("apps load failed", err);
-    $("#appsGrid").innerHTML = "<p>Could not load apps. Edit <code>data/apps.json</code> to add yours.</p>";
-  }
+  });
 }
-loadApps();
-
-/* SKOL button = burst */
-$("#skolButton")?.addEventListener("click", ()=>{
-  const burst = document.createElement("div");
-  burst.className = "skol-burst";
-  burst.textContent = "SKOL!";
-  document.body.appendChild(burst);
-  const x = Math.random() * (window.innerWidth - 160) + 40;
-  const y = Math.random() * (window.innerHeight - 200) + 80;
-  burst.style.left = x + "px";
-  burst.style.top = y + "px";
-  setTimeout(()=>burst.remove(), 2000);
-});
-const extra = document.createElement("style");
-extra.textContent = `
-.skol-burst{
-  position:fixed; z-index:9999; font-weight:800; color: var(--gold);
-  font-size: clamp(20px, 6vw, 64px);
-  transform: rotate(-6deg); text-shadow: 0 10px 24px rgba(0,0,0,.45);
-  animation: fly 2s ease-out forwards;
-}
-@keyframes fly{
-  from{ transform: translateY(0) rotate(-6deg); opacity:1 }
-  to{ transform: translateY(-120px) rotate(6deg); opacity:0 }
-}`;
-document.head.appendChild(extra);
-
-/* Vikings toys */
-// Confetti
-$("#confettiBtn")?.addEventListener("click", ()=>{
-  for(let i=0;i<120;i++){
-    const dot = document.createElement("div");
-    dot.className = "confetti";
-    dot.style.left = Math.random()*100 + "vw";
-    dot.style.animationDuration = (2.5 + Math.random()*2.5) + "s";
-    dot.style.background = (Math.random() > 0.5) ? "var(--purple)" : "var(--gold)";
-    document.body.appendChild(dot);
-    setTimeout(()=>dot.remove(), 6000);
-  }
-});
-
-
-/* Header logo confetti + 'S' keyboard SKOL */
-const headerLogo = $(".nav-logo");
-headerLogo?.addEventListener("click", ()=>{
-  for(let i=0;i<80;i++){
-    const dot = document.createElement("div");
-    dot.className = "confetti";
-    dot.style.left = Math.random()*100 + "vw";
-    dot.style.animationDuration = (2.2 + Math.random()*2.2) + "s";
-    dot.style.background = (Math.random() > 0.5) ? "var(--purple)" : "var(--gold)";
-    document.body.appendChild(dot);
-    setTimeout(()=>dot.remove(), 5000);
-  }
-});
-document.addEventListener("keydown", (e)=>{
-  if(e.key.toLowerCase()==="s"){
-    const burst = document.createElement("div");
-    burst.className = "skol-burst";
-    burst.textContent = "SKOL!";
-    document.body.appendChild(burst);
-    const x = Math.random() * (window.innerWidth - 160) + 40;
-    const y = Math.random() * (window.innerHeight - 200) + 80;
-    burst.style.left = x + "px";
-    burst.style.top = y + "px";
-    setTimeout(()=>burst.remove(), 2000);
-  }
-});

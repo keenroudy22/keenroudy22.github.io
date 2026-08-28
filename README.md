@@ -1,11 +1,11 @@
-# SKOL — Fun Vikings Site
+# keenroudy.com
 
-Vikings vibes + a simple showcase for your web apps. No business, just fun.
+Kinnon Roudebush's personal home base: career, family, MyGolfLinks, and a few side quests.
 
-## Quick start
-1. Edit `data/apps.json` to add your app links and emojis.
-2. Drop official Vikings logos in `assets/logos/` and update the `<img>` `src` in the Vikings section if filenames differ.
-3. Deploy (copy to your GitHub Pages repo root).
+## Local preview
 
-## PWA (Install to Home Screen)
-- This ships with a service worker and manifest. On Chrome/Android/Desktop you'll see an **Install** button when eligible.
+Serve the repository root with any static file server and open `index.html` through that server. Core content lives in `index.html`; the editable living scoreboard lives in `data/now.json`.
+
+## Publishing
+
+The `main` branch is served through GitHub Pages at `keenroudy.com`. Keep the root `CNAME` file unchanged. The legacy `sw.js` exists only to remove the previous cache-first PWA and unregister itself.

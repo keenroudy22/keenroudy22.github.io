@@ -3,154 +3,275 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SKOL</title>
-  <meta name="description" content="Kinnon's Vikings fan corner and web app showcase.">
+  <title>Kinnon Roudebush | Team First. Builder Always.</title>
+  <meta name="description" content="Kinnon Roudebush is an Indiana-raised technical implementation leader, husband, boy dad, and co-founder of MyGolfLinks.">
+  <meta name="theme-color" content="#0b101a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="./assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="./assets/icons/favicon-64.png" sizes="64x64" type="image/png">
+  <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
   <link rel="stylesheet" href="./styles.css">
-  <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="icon" href="./assets/logos/V.png" type="image/png">
-  <meta name="theme-color" content="#4F2683">
-  <meta property="og:title" content="SKOL — Kinnon's Fun Site">
-  <meta property="og:description" content="Vikings vibes + web apps">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kinnon Roudebush">
+  <meta property="og:title" content="Team first. Builder always.">
+  <meta property="og:description" content="Technical implementation, product thinking, family, golf, and the things Kinnon is building next.">
+  <meta property="og:url" content="https://keenroudy.com/">
+  <meta property="og:image" content="https://keenroudy.com/assets/social/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://keenroudy.com/assets/social/og.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Kinnon Roudebush",
+    "url": "https://keenroudy.com/",
+    "image": "https://keenroudy.com/assets/photos/kinnon-hero.webp",
+    "email": "mailto:kar@keenroudy.com",
+    "jobTitle": "Client Transition Engineer and MyGolfLinks Co-Founder",
+    "sameAs": ["https://www.linkedin.com/in/kinnonroudebush"],
+    "knowsAbout": ["Technical implementation", "Client onboarding", "Service delivery", "Product development", "Golf technology"]
+  }
+  </script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
+  <a class="skip-link" href="#main">Skip to the story</a>
   <header class="site-header">
-    <div class="wrap">
-      <div class="brand">
-        <img src="./assets/logos/Horn.png" alt="" width="28" height="28" aria-hidden="true">
-        <span class="brand-text">Kinnon<span class="skol-dot">•</span>Roudebush</span>
-      </div>
-      <nav class="nav" aria-label="Main">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
-        <ul id="nav-list" class="nav-list">
-          <li><a href="#apps">Apps</a></li>
-          <li><a href="#fan">Fan Resume</a></li>
-          <li><button id="installBtn" class="btn btn-gold btn-small" hidden>Install</button></li>
-        <li><a href="#schedule">Schedule</a></li></ul>
-      </nav>
-    </div>
+    <a class="brand" href="#top" aria-label="Kinnon Roudebush, home">
+      <span class="brand-mark" aria-hidden="true">KR</span>
+      <span>Kinnon Roudebush</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+      <a href="#scouting-report">Scouting report</a>
+      <a href="#career">Career</a>
+      <a href="#mygolflinks">MyGolfLinks</a>
+      <a href="#home-team">Home team</a>
+      <a href="#now">Now</a>
+      <a class="nav-resume" href="./assets/resume/Kinnon-Roudebush-Resume.pdf" download>Résumé</a>
+    </nav>
   </header>
 
   <main id="main">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">SKOL • Dad • Web tinkerer</p>
-          <h1>Just for fun.<br><span class="grad-text">Vikings & web apps.</span></h1>
-          <p class="lede">This is my little corner to share stuff I build and celebrate purple &amp; gold.</p>
-          <div class="cta"><a class="btn btn-primary" href="https://keenroudy.com/lottery/" target="_blank" rel="noopener">Open Lottery Scoreboard</a><a class="btn btn-ghost" href="#apps">Browse my apps</a></div>
-          <div class="fan-toys"><button id="skolButton" class="btn btn-ghost">SKOL!</button> <button id="confettiBtn" class="btn btn-ghost">Purple Confetti</button></div>
+    <section id="top" class="hero">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Indiana raised <span aria-hidden="true">/</span> People + technology</p>
+        <h1>Team first.<br><span>Builder always.</span></h1>
+        <p class="hero-lede">I’m Kinnon Roudebush. I help teams get complicated technology across the finish line—and when I see a problem worth solving, I start building.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#career">See the career playbook</a>
+          <a class="button button-secondary" href="./assets/resume/Kinnon-Roudebush-Resume.pdf" download>Download my résumé</a>
         </div>
-        <div class="hero-art">
-          <div class="hero-logo-hero"><img src="./assets/logos/Full-Logo.png" alt="Vikings full logo"></div>
-        </div>
+        <p class="hero-note">Client Transition Engineer <span aria-hidden="true">•</span> MyGolfLinks Co-Founder <span aria-hidden="true">•</span> Husband <span aria-hidden="true">•</span> Boy Dad ×3</p>
       </div>
+      <figure class="hero-photo reveal">
+        <img src="./assets/photos/kinnon-hero.webp" width="960" height="1280" alt="Kinnon Roudebush smiling at an outdoor table" fetchpriority="high">
+        <figcaption><span>Current position</span> Somewhere between a client handoff and the next idea.</figcaption>
+      </figure>
+      <div class="hero-ticker" aria-hidden="true">
+        <span>PEOPLE</span><span>PROCESS</span><span>PRODUCT</span><span>FAMILY</span><span>GOLF</span><span>SKOL</span>
+      </div>
+    </section>
 
-      <div class="ticker" aria-hidden="true">
-        <div class="ticker-track">
-          <span>PURPLE • PEOPLE • EATER • SKOL • SKOL • SKOL • </span>
-          <span>SKOL • VIKINGS • SKOL • VIKINGS • SKOL • VIKINGS • </span>
-          <span>PURPLE • PEOPLE • EATER • SKOL • SKOL • SKOL • </span>
-          <span>SKOL • THIS • IS • OUR • YEAR • SKOL • </span>
+    <section id="scouting-report" class="section scouting-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">At a glance</p>
+        <h2>The scouting report</h2>
+        <p>No buzzword combine. Just the numbers that explain the person.</p>
+      </div>
+      <div class="score-grid reveal">
+        <article><strong>6+</strong><span>Years in MSP work</span></article>
+        <article><strong>3</strong><span>Boys on the roster</span></article>
+        <article><strong>2</strong><span>Mini Bernedoodles</span></article>
+        <article><strong>1</strong><span>Golf platform co-founded</span></article>
+      </div>
+    </section>
+
+    <section id="story" class="section roots-section">
+      <div class="roots-copy reveal">
+        <p class="eyebrow">The first roster</p>
+        <h2>Built in Indiana.<br>Raised around teams.</h2>
+        <p>I grew up in Indiana, where sports made teamwork less of a value statement and more of a habit. You learn to do your job, communicate early, and keep moving when the plan changes.</p>
+        <p>My brothers, Koby and KJ, were part of that first roster. The lessons stuck: show up, look out for your people, and leave things better than you found them.</p>
+        <blockquote>Most of my career has been some version of the same assignment: get the right people lined up, make the complicated part understandable, and finish the job.</blockquote>
+      </div>
+      <div class="roots-photos reveal">
+        <figure class="photo-card photo-card-wide">
+          <img src="./assets/photos/brothers-football.webp" width="960" height="1279" alt="Koby, KJ holding Leland, and Kinnon together on a football field" loading="lazy">
+          <figcaption>Koby, KJ, Leland, and me. Sports are still a family language.</figcaption>
+        </figure>
+        <figure class="photo-card photo-card-small">
+          <img src="./assets/photos/kinnon-mariah.webp" width="960" height="1440" alt="Kinnon carrying Mariah on his shoulders outdoors" loading="lazy">
+          <figcaption>Mariah and me, before the roster expanded.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="career" class="section career-section">
+      <div class="section-heading section-heading-light reveal">
+        <p class="eyebrow">2019 → now</p>
+        <h2>The career playbook</h2>
+        <p>I didn’t skip steps. I learned the work close to the user, then kept taking ownership of more of the handoff.</p>
+      </div>
+      <div class="career-grid">
+        <article class="career-play reveal">
+          <div class="play-number" aria-hidden="true">01</div>
+          <div>
+            <p class="career-years">2019–2021</p>
+            <h3>Learn the field</h3>
+            <p>At Carmel Clay Schools and Fetzerhaus Technology, I built the foundation: devices, applications, networks, permissions, and the patience to troubleshoot what is actually happening—not what the ticket says is happening.</p>
+            <p class="career-role">Computer Technician → Systems Engineer</p>
+          </div>
+        </article>
+        <article class="career-play reveal">
+          <div class="play-number" aria-hidden="true">02</div>
+          <div>
+            <p class="career-years">2021–2023</p>
+            <h3>Solve the real problem</h3>
+            <p>Service desk and technical onboarding work at Braden Business Systems taught me that a fix only counts when the customer understands it, the team can support it, and the documentation survives the handoff.</p>
+            <p class="career-role">Service Desk Analyst → Technical Onboarding Specialist</p>
+          </div>
+        </article>
+        <article class="career-play reveal">
+          <div class="play-number" aria-hidden="true">03</div>
+          <div>
+            <p class="career-years">2023–present</p>
+            <h3>Own the transition</h3>
+            <p>I moved into technical alignment, onboarding coordination, and now client-transition engineering. Today I guide new Harbor IT clients from discovery through implementation, QA, and support handoff while keeping engineers, vendors, and customers moving together.</p>
+            <p class="career-role">Technical Alignment → Onboarding Coordinator → Client Transition Engineer</p>
+          </div>
+        </article>
+        <article class="career-play career-play-feature reveal">
+          <div class="play-number" aria-hidden="true">04</div>
+          <div>
+            <p class="career-years">Present</p>
+            <h3>Build the system</h3>
+            <p>MyGolfLinks is where the whole playbook comes together: listening to users, turning workflows into requirements, coordinating development and releases, testing the details, and building technology around how people really work.</p>
+            <p class="career-role">Co-Founder / Product & Technical Lead</p>
+          </div>
+        </article>
+      </div>
+      <div class="career-cta reveal">
+        <p>Need the dates, tools, and full role history?</p>
+        <a class="button button-primary" href="./assets/resume/Kinnon-Roudebush-Resume.pdf" download>Download the two-page résumé</a>
+      </div>
+    </section>
+
+    <section id="mygolflinks" class="section mgl-section">
+      <div class="mgl-visual reveal">
+        <img src="./assets/projects/mygolflinks.webp" width="1200" height="630" alt="MyGolfLinks product preview for golfers and golf courses" loading="lazy">
+        <span class="mgl-sticker">Flagship build</span>
+      </div>
+      <div class="mgl-copy reveal">
+        <p class="eyebrow">MyGolfLinks</p>
+        <h2>Where people, process, product, and golf finally met.</h2>
+        <p>MyGolfLinks is a golf technology platform built for players, courses, and partners. I co-founded it because golf has plenty of technology—but too much of it makes the people using it work around the software.</p>
+        <p>My role lives between an idea and a dependable release. I help turn workflows into requirements, plan permissions and data paths, coordinate development and testing, document what breaks, and keep the next priority clear.</p>
+        <ul class="stack-list" aria-label="MyGolfLinks technology">
+          <li>React Native</li><li>Cloudflare Workers</li><li>Supabase</li><li>Stripe</li><li>GitHub</li><li>REST APIs</li>
+        </ul>
+        <div class="mgl-actions">
+          <a class="button button-primary" href="https://mygolflinks.com/" target="_blank" rel="noopener">Visit MyGolfLinks</a>
+          <a class="text-link" href="https://apps.apple.com/us/app/mygolflinks/id6787204431" target="_blank" rel="noopener">View it on the App Store <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
 
-    <!-- APPS -->
-    <section id="apps" class="section">
-      <div class="wrap">
-        <h2 class="section-title">Web Apps</h2>
-        <p class="section-sub">Auto-filled from <code>data/apps.json</code>. Add your links and emojis there.</p>
-        <div id="appsGrid" class="grid cards" aria-live="polite"></div>
+    <section id="home-team" class="section home-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">The home team</p>
+        <h2>The best roster I’ll ever be part of.</h2>
+        <p>Mariah and I are raising Leland, Sutton, and Tatum, with Griffey and Otis running zone coverage. This is the team every other ambition is built around.</p>
+      </div>
+      <div class="family-grid">
+        <figure class="family-feature reveal">
+          <img src="./assets/photos/family.webp" width="960" height="1306" alt="Kinnon and Mariah standing together with Leland, Sutton, and Tatum" loading="lazy">
+          <figcaption><strong>Starting five</strong><span>Mariah, Leland, Sutton, Tatum, and me.</span></figcaption>
+        </figure>
+        <figure class="family-card family-card-tall reveal">
+          <img src="./assets/photos/dad-state-fair.webp" width="960" height="1707" alt="Kinnon with Leland, Sutton, and Tatum at a state fair" loading="lazy">
+          <figcaption>Dad duty: fair food and double-stroller formation.</figcaption>
+        </figure>
+        <figure class="family-card reveal">
+          <img src="./assets/photos/three-boys.webp" width="960" height="1440" alt="Leland sitting between his younger twin brothers Sutton and Tatum" loading="lazy">
+          <figcaption>Leland, Sutton, and Tatum.</figcaption>
+        </figure>
+        <div class="dog-roster reveal" aria-label="The dogs">
+          <figure>
+            <img src="./assets/photos/griffey.webp" width="960" height="1203" alt="Griffey, a black tri-color mini Bernedoodle, wearing a birthday bandana" loading="lazy">
+            <figcaption><strong>Griffey</strong><span>Tri-color mini Bernedoodle</span></figcaption>
+          </figure>
+          <figure>
+            <img src="./assets/photos/otis.webp" width="960" height="1200" alt="Otis, a gold mini Bernedoodle, wearing a party hat and birthday bandana" loading="lazy">
+            <figcaption><strong>Otis</strong><span>Gold mini Bernedoodle</span></figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
-    <!-- FAN RESUME -->
-    <section id="fan" class="section about">
-      <div class="wrap about-grid">
+    <section id="now" class="section now-section">
+      <div class="section-heading section-heading-light reveal">
+        <p class="eyebrow">Live from the sideline</p>
+        <h2>The living scoreboard</h2>
+        <p>A quick snapshot of what has my attention right now. Easy to update, impossible to overthink.</p>
+      </div>
+      <div id="now-grid" class="now-grid reveal" aria-live="polite">
+        <article><span>Work</span><strong>Client transitions at Harbor IT</strong></article>
+        <article><span>Building</span><strong>MyGolfLinks and the systems around it</strong></article>
+        <article><span>Home</span><strong>Life with Mariah and our three boys</strong></article>
+        <article><span>Playing</span><strong>Golf whenever the calendar allows</strong></article>
+        <article><span>Rooting</span><strong>Minnesota. SKOL.</strong></article>
+        <article><span>Side quests</span><strong>Small tools for problems that bug me</strong></article>
+      </div>
+      <p id="now-updated" class="now-updated">Updated August 2026</p>
+    </section>
+
+    <section id="side-quests" class="section side-section">
+      <div class="side-heading reveal">
         <div>
-          <h2 class="section-title">Fan Resume</h2>
-          <ul class="ticks">
-            <li>Sundays = purple attire</li>
-            <li>Favorite eras: Moss deep balls, Allen sack dances, JJ griddy highlights</li>
-            <li>Preferred scoreline: Vikings by 3 😅</li>
-          </ul>
+          <p class="eyebrow">Built because it sounded fun</p>
+          <h2>Side quests</h2>
         </div>
-        <div class="about-card">
-          <h3>All-Time Faves</h3>
-          <ul class="mini-list">
-            <li>Adrian Peterson • Randy Moss • Harrison Smith</li>
-            <li>Justin Jefferson • Jared Allen</li>
-            <li>Honorable: Adam Thielen</li>
-          </ul>
-        </div>
+        <p>Not everything needs a pitch deck. Sometimes I just want a tool to exist.</p>
+      </div>
+      <div class="side-grid">
+        <a class="side-card reveal" href="https://keenroudy.com/NFLlottery/" target="_blank" rel="noopener">
+          <span class="side-number">01</span><h3>NFL Lottery Draft</h3><p>Run an eight-player snake draft with two AFC and two NFC teams per person.</p><strong>Open the draft <span aria-hidden="true">↗</span></strong>
+        </a>
+        <a class="side-card reveal" href="https://keenroudy.com/LoseItNow/" target="_blank" rel="noopener">
+          <span class="side-number">02</span><h3>Macro Calculator</h3><p>A straightforward calculator for turning a weight goal into practical daily targets.</p><strong>Run the numbers <span aria-hidden="true">↗</span></strong>
+        </a>
+        <a class="side-card reveal" href="https://keenroudy.com/vCaddie-Rev2/" target="_blank" rel="noopener">
+          <span class="side-number">03</span><h3>vCaddie</h3><p>An early golf experiment for choosing a club from the yardage in front of you.</p><strong>Pick a club <span aria-hidden="true">↗</span></strong>
+        </a>
       </div>
     </section>
-  
 
-<section id="schedule" class="section">
-  <div class="wrap">
-    <h2 class="section-title">2025 Vikings Schedule</h2>
-    <p class="section-sub">Times in Eastern. <span class="record">Record: <strong id="record">0–0</strong></span> <span class="muted"></span></p>
-
-    <h3 class="sched-sub">Preseason</h3>
-    <table class="sched">
-  <thead><tr><th>Week</th><th>Date</th><th>Opponent</th><th>Home/Away</th><th>Time (ET)</th><th>TV</th><th>Result</th></tr></thead>
-  <tbody>
-    <tr><td>PS1</td><td>Sat Aug 9, 2025</td><td>Houston Texans</td><td>Home</td><td>4:00 pm</td><td>NFL Network</td><td>W 20—10</td></tr>
-    <tr><td>PS2</td><td>Sat Aug 16, 2025</td><td>New England Patriots</td><td>Home</td><td>1:00 pm</td><td>—</td><td>—</td></tr>
-    <tr><td>PS3</td><td>Fri Aug 22, 2025</td><td>at Tennessee Titans</td><td>Away</td><td>8:00 pm</td><td>CBS</td><td>—</td></tr>
-  </tbody>
-</table>
-
-    <h3 class="sched-sub">Regular Season</h3>
-    <table class="sched">
-  <thead><tr><th>Week</th><th>Date</th><th>Opponent</th><th>Home/Away</th><th>Time (ET)</th><th>TV</th><th>Result</th></tr></thead>
-  <tbody>
-<tr><td>1</td><td>Mon Sep 8, 2025</td><td>at Chicago Bears</td><td>Away</td><td>8:15 pm</td><td>ESPN/ABC</td><td>—</td></tr>
-<tr><td>2</td><td>Sun Sep 14, 2025</td><td>Atlanta Falcons</td><td>Home</td><td>8:20 pm</td><td>NBC</td><td>—</td></tr>
-<tr><td>3</td><td>Sun Sep 21, 2025</td><td>Cincinnati Bengals</td><td>Home</td><td>1:00 pm</td><td>CBS</td><td>—</td></tr>
-<tr><td>4</td><td>Sun Sep 28, 2025</td><td>at Pittsburgh Steelers †</td><td>Neutral</td><td>9:30 am</td><td>NFL Network</td><td>—</td></tr>
-<tr><td>5</td><td>Sun Oct 5, 2025</td><td>at Cleveland Browns †</td><td>Neutral</td><td>9:30 am</td><td>NFL Network</td><td>—</td></tr>
-<tr><td>6</td><td>—</td><td>BYE</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td>7</td><td>Sun Oct 19, 2025</td><td>Philadelphia Eagles</td><td>Home</td><td>1:00 pm</td><td>FOX</td><td>—</td></tr>
-<tr><td>8</td><td>Thu Oct 23, 2025</td><td>at Los Angeles Chargers</td><td>Away</td><td>8:15 pm</td><td>Prime Video</td><td>—</td></tr>
-<tr><td>9</td><td>Sun Nov 2, 2025</td><td>at Detroit Lions</td><td>Away</td><td>1:00 pm</td><td>FOX</td><td>—</td></tr>
-<tr><td>10</td><td>Sun Nov 9, 2025</td><td>Baltimore Ravens</td><td>Home</td><td>1:00 pm</td><td>FOX</td><td>—</td></tr>
-<tr><td>11</td><td>Sun Nov 16, 2025</td><td>Chicago Bears</td><td>Home</td><td>1:00 pm</td><td>FOX</td><td>—</td></tr>
-<tr><td>12</td><td>Sun Nov 23, 2025</td><td>at Green Bay Packers</td><td>Away</td><td>1:00 pm</td><td>FOX</td><td>—</td></tr>
-<tr><td>13</td><td>Sun Nov 30, 2025</td><td>at Seattle Seahawks</td><td>Away</td><td>4:05 pm</td><td>FOX</td><td>—</td></tr>
-<tr><td>14</td><td>Sun Dec 7, 2025</td><td>Washington Commanders</td><td>Home</td><td>1:00 pm</td><td>FOX</td><td>—</td></tr>
-<tr><td>15</td><td>Sun Dec 14, 2025</td><td>at Dallas Cowboys</td><td>Away</td><td>8:20 pm</td><td>NBC</td><td>—</td></tr>
-<tr><td>16</td><td>Sun Dec 21, 2025</td><td>at New York Giants</td><td>Away</td><td>1:00 pm</td><td>FOX</td><td>—</td></tr>
-<tr><td>17</td><td>Thu Dec 25, 2025</td><td>Detroit Lions</td><td>Home</td><td>4:30 pm</td><td>Netflix</td><td>—</td></tr>
-<tr><td>18</td><td>Sun Jan 4, 2026</td><td>Green Bay Packers</td><td>Home</td><td>TBD</td><td>TBD</td><td>—</td></tr>
-  </tbody>
-</table>
-
-    <p class="sched-note muted">† International games: Week 4 (Dublin, vs Steelers) &amp; Week 5 (London, vs Browns). Week 18 date/time TBD; subject to flex scheduling.</p>
-  </div>
-</section>
-
-
-</main>
+    <section id="contact" class="section contact-section">
+      <div class="contact-copy reveal">
+        <p class="eyebrow">End of regulation</p>
+        <h2>Want to talk tech, golf, or a messy handoff?</h2>
+        <p>I’m always happy to compare notes with good people working on real problems.</p>
+      </div>
+      <div class="contact-actions reveal">
+        <a class="button button-primary" href="mailto:kar@keenroudy.com">Email me</a>
+        <a class="button button-secondary" href="https://www.linkedin.com/in/kinnonroudebush" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="text-link" href="./assets/resume/Kinnon-Roudebush-Resume.pdf" download>Download résumé</a>
+      </div>
+      <button id="skol-button" class="skol-button" type="button">Press for a little SKOL</button>
+    </section>
+  </main>
 
   <footer class="site-footer">
-    <div class="wrap footer-grid">
-      <p class="foot-left">© <span id="year"></span> Kinnon Roudebush</p>
-      <p class="foot-center">Built for fun — not affiliated with the NFL or Vikings</p>
-      <div class="foot-right">
-        <button id="themeToggle" class="btn btn-small">Toggle theme</button>
-      </div>
+    <div class="footer-inner">
+      <a class="brand" href="#top" aria-label="Back to top"><span class="brand-mark" aria-hidden="true">KR</span><span>Kinnon Roudebush</span></a>
+      <p>© <span id="year"></span> Built around people. Kept interesting on purpose.</p>
+      <div class="footer-links"><a href="mailto:kar@keenroudy.com">Email</a><a href="https://www.linkedin.com/in/kinnonroudebush" target="_blank" rel="noopener">LinkedIn</a></div>
     </div>
   </footer>
-
   <script src="./script.js" defer></script>
 </body>
 </html>
