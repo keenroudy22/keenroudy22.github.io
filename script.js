@@ -65,6 +65,20 @@ async function loadNow() {
 
     if (!fragment.childNodes.length) throw new Error("No valid scoreboard items");
     grid.replaceChildren(fragment);
+
+    document.querySelectorAll(".wire-group").forEach((group) => {
+      const wireFragment = document.createDocumentFragment();
+      items.forEach((item) => {
+        if (!item?.label || !item?.value) return;
+        const update = document.createElement("span");
+        const label = document.createElement("b");
+        label.textContent = item.label.toUpperCase();
+        update.append(label, document.createTextNode(` ${item.value}`));
+        wireFragment.append(update);
+      });
+      group.replaceChildren(wireFragment);
+    });
+
     const latest = items.find((item) => item.updated)?.updated;
     if (latest) updated.textContent = `Updated ${latest}`;
   } catch (error) {

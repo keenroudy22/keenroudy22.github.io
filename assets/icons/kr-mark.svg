@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Kinnon Roudebush monogram</title>
+  <defs>
+    <linearGradient id="bg" x1="8" y1="5" x2="56" y2="59" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6f4bb6"/>
+      <stop offset="1" stop-color="#211433"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="17" fill="url(#bg)" stroke="#f0c75e" stroke-width="2.5"/>
+  <path d="M17 15v34M18 33 31 16M18 34l14 15" fill="none" stroke="#f0c75e" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M35 17h7.5c5.6 0 9 3.4 9 8.8s-3.4 8.8-9 8.8H35V17Zm8 17.6L52 49" fill="none" stroke="#fffaf2" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
