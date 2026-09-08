@@ -111,7 +111,7 @@ button, input, textarea, select { font: inherit; }
 .text-link { color: var(--gold); font-weight: 800; text-underline-offset: 5px; }
 
 .toolkit-section { color: var(--ink); background: var(--paper-bright); }
-.tool-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 48px; }
+.tool-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 48px; }
 .tool-grid article { min-height: 220px; padding: 28px; border: 1px solid var(--paper-line); border-radius: 22px; background: #fff; box-shadow: 0 18px 50px rgba(35,27,51,.05); }
 .tool-grid span { display: block; margin-bottom: 26px; color: var(--purple); font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .tool-grid strong { display: block; font-family: Sora, sans-serif; font-size: 1.2rem; font-weight: 600; line-height: 1.32; }
