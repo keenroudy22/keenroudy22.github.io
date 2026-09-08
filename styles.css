@@ -186,6 +186,7 @@ button, input, textarea, select { font: inherit; }
   .site-nav a { font-size: .8rem; }
   .family-grid { grid-template-columns: 1fr 1fr; grid-template-areas: "family fair" "boys boys" "dogs dogs"; }
   .family-card-tall img { height: auto; }
+  .tool-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 820px) {
@@ -220,6 +221,8 @@ button, input, textarea, select { font: inherit; }
   .hero-ticker span:nth-child(even) { display: none; }
   .score-grid { grid-template-columns: 1fr; }
   .score-grid article { min-height: 145px; }
+  .tool-grid { grid-template-columns: 1fr; }
+  .tool-grid article { min-height: 0; }
   .roots-photos { display: grid; min-height: 0; gap: 24px; }
   .photo-card { position: relative; inset: auto; width: 100%; }
   .career-play { grid-template-columns: 1fr; min-height: 0; }
