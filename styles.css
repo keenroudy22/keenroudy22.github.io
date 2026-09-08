@@ -110,6 +110,12 @@ button, input, textarea, select { font: inherit; }
 .mgl-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
 .text-link { color: var(--gold); font-weight: 800; text-underline-offset: 5px; }
 
+.toolkit-section { color: var(--ink); background: var(--paper-bright); }
+.tool-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 48px; }
+.tool-grid article { min-height: 220px; padding: 28px; border: 1px solid var(--paper-line); border-radius: 22px; background: #fff; box-shadow: 0 18px 50px rgba(35,27,51,.05); }
+.tool-grid span { display: block; margin-bottom: 26px; color: var(--purple); font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.tool-grid strong { display: block; font-family: Sora, sans-serif; font-size: 1.2rem; font-weight: 600; line-height: 1.32; }
+
 .home-section { color: var(--ink); background: var(--paper); }
 .family-grid { display: grid; grid-template-columns: 1.15fr .85fr 1fr; grid-template-areas: "family fair boys" "dogs dogs dogs"; align-items: start; gap: 18px; margin-top: 58px; }
 .family-grid figure { margin: 0; }
@@ -145,6 +151,7 @@ button, input, textarea, select { font: inherit; }
 .side-number { color: var(--purple); font-family: Sora, sans-serif; font-size: .85rem; font-weight: 700; }
 .side-card h3 { margin: 30px 0 10px; font-family: Sora, sans-serif; font-size: 1.7rem; line-height: 1.1; }
 .side-card p { color: var(--dark-muted); }
+.project-stack { z-index: 1; display: block; margin: 6px 0 20px; color: var(--dark-muted); font-size: .72rem; font-weight: 800; line-height: 1.45; }
 .side-card strong { z-index: 1; margin-top: auto; color: var(--purple); }
 
 .contact-section { position: relative; overflow: hidden; text-align: center; background: var(--ink); }
