@@ -296,3 +296,38 @@ button, input, textarea, select { font: inherit; }
   .education-note { flex-direction: column; gap: 4px; }
 }
 @media (prefers-reduced-motion: reduce) { .wire-toggle { display: none; } .wire-window { overflow-x: auto; } .wire-group[aria-hidden="true"] { display: none; } }
+
+/* Personal game-day typography and team colors */
+:root { --purple: #56318a; --purple-deep: #291541; --irish-navy: #0c2340; }
+.hero { background: #171020; border-bottom: 4px solid var(--gold); }
+.hero::before, .contact-section::before { display: none; }
+.hero h1 { font-family: Oswald, Impact, "Arial Narrow", sans-serif; font-weight: 600; font-size: clamp(3.4rem, 7.8vw, 7rem); letter-spacing: -.025em; line-height: 1.05; }
+.hero h1 span { color: var(--cream); }
+.hero-lede { font-size: 1.0625rem; }
+.section-heading h2, .roots-copy h2, .mgl-copy h2, .side-heading h2, .contact-copy h2 { font-family: Oswald, Impact, "Arial Narrow", sans-serif; font-weight: 500; letter-spacing: -.01em; }
+.button, .site-nav .nav-resume, .nav-toggle { border-radius: 4px; }
+.fan-strip { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+.fan-strip > span { flex: 1 1 205px; display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 14px 16px; border-left: 3px solid var(--gold); font-weight: 600; font-size: .9375rem; }
+.fan-strip small { grid-column: 1 / -1; color: #d8d6dc; font-size: .75rem; font-weight: 500; text-transform: uppercase; letter-spacing: .09em; }
+.fan-strip b { color: var(--gold); font-size: .8125rem; align-self: center; }
+.fan-vikings { background: #402260; }
+.fan-irish { background: var(--irish-navy); }
+.career-grid { gap: 0 36px; }
+.career-play { padding: 28px 0; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: transparent; }
+.career-play-feature { background: transparent; }
+.career-play h3 { line-height: 1.3; }
+.career-role { font-weight: 500; }
+.roots-section { background: var(--irish-navy); border-top: 4px solid #c7ad71; }
+.now-section { background: #18121f; }
+.photo-card, .family-card, .family-feature, .dog-roster figure, .mgl-visual { border-radius: 6px; box-shadow: none; }
+.stack-list li { border-radius: 3px; font-weight: 500; }
+.side-card { border-radius: 4px; }
+.contact-section { text-align: left; background: var(--irish-navy); border-top: 3px solid #c7ad71; }
+.contact-copy { max-width: none; margin: 0; }
+.contact-actions { justify-content: flex-start; }
+.js .reveal.visible { animation: none; }
+@media (max-width: 560px) {
+  .hero h1 { font-size: clamp(3rem, 13.5vw, 4.6rem); }
+  .fan-strip > span { flex-basis: 100%; }
+  .career-play { gap: 12px; }
+}
