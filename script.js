@@ -17,7 +17,7 @@ navToggle?.addEventListener("click", () => {
 
 nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeNavigation));
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
+  if (event.key === "Escape" && navToggle?.getAttribute("aria-expanded") === "true") {
     closeNavigation();
     navToggle?.focus();
   }
@@ -125,3 +125,12 @@ if ("serviceWorker" in navigator && !localStorage.getItem("kr-sw-cleanup-v1")) {
     }
   });
 }
+
+const wireToggle = document.querySelector(".wire-toggle");
+wireToggle?.addEventListener("click", () => {
+  const paused = wireToggle.getAttribute("aria-pressed") !== "true";
+  document.querySelector(".roudy-wire")?.classList.toggle("is-paused", paused);
+  wireToggle.setAttribute("aria-pressed", String(paused));
+  wireToggle.setAttribute("aria-label", paused ? "Resume Roudy Wire" : "Pause Roudy Wire");
+  wireToggle.textContent = paused ? "Resume" : "Pause";
+});
