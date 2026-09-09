@@ -331,3 +331,9 @@ button, input, textarea, select { font: inherit; }
   .fan-strip > span { flex-basis: 100%; }
   .career-play { gap: 12px; }
 }
+
+/* Official App Store screenshot, shown without cropping. */
+.mgl-app-preview { width: min(100%, 330px); margin: 0; justify-self: center; padding: 0; background: transparent; border: 0; overflow: visible; }
+.mgl-app-preview img { width: 100%; height: auto; border-radius: 6px; }
+.mgl-app-preview a { display: block; border-radius: 6px; }
+.mgl-app-preview figcaption { margin-top: 12px; font-size: .8125rem; color: #dbe9df; text-align: center; }
