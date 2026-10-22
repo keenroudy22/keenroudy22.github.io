@@ -4,7 +4,7 @@ Kinnon Roudebush's personal home base: career, family, MyGolfLinks, and a few si
 
 ## Local preview
 
-Serve the repository root with any static file server and open `index.html` through that server. Core content lives in `index.html`; the editable living scoreboard lives in `data/now.json`.
+Serve the repository root with any static file server and open `index.html` through that server. Core content lives in `index.html`. The downloadable resume is `assets/resume/Kinnon-Roudebush-Resume.pdf`.
 
 ## Publishing
 
